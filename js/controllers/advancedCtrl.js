@@ -22,7 +22,7 @@ app.controller('advancedCtrl', ['$scope', '$location', 'CalcService',
             $scope.conIn += numb;
             }
     }
-    
+
     $scope.operation = function(symbol){
         if($scope.conIn === '.'){
             $scope.conIn = '0';
@@ -106,10 +106,10 @@ app.controller('advancedCtrl', ['$scope', '$location', 'CalcService',
             }
         }
         if(symbol === 'sqrt'){
-            if($scope.first && $scope.conIn > 0){
+            if($scope.first && $scope.conIn >= 0){
                 $scope.conIn = CalcService.sqrtFunc($scope.conIn);
             }
-            else if(!$scope.first && $scope.conIn >0){
+            else if(!$scope.first && $scope.conIn >=0){
                 $scope.first = CalcService.sqrtFunc($scope.conIn);
                 $scope.conOut = $scope.first;
                 $scope.conIn = $scope.first;
@@ -119,11 +119,11 @@ app.controller('advancedCtrl', ['$scope', '$location', 'CalcService',
             }
         }
         if(symbol === 'n!'){
-            if($scope.first && $scope.conIn > 0){
-                $scope.conIn = CalcService.factoriaFunc(parseFloat($scope.conIn));
+            if($scope.first && $scope.conIn >= 0){
+                $scope.conIn = CalcService.factoriaFunc(Number($scope.conIn));
             }
-            else if(!$scope.first && $scope.conIn >0){
-                $scope.first = CalcService.factoriaFunc(parseFloat($scope.conIn));
+            else if(!$scope.first && $scope.conIn >=0){
+                $scope.first = CalcService.factoriaFunc(Number($scope.conIn));
                 $scope.conOut = $scope.first;
                 $scope.conIn = $scope.first;
             }

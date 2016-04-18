@@ -108,10 +108,10 @@ app.controller('CalcCtrl', ['$scope', '$location', 'CalcService',
               }
           }
           if(symbol === 'sqrt'){
-              if($scope.first && $scope.conIn > 0){
+              if($scope.first && $scope.conIn >= 0){
                   $scope.conIn = CalcService.sqrtFunc($scope.conIn);
               }
-              else if(!$scope.first && $scope.conIn >0){
+              else if(!$scope.first && $scope.conIn >=0){
                   $scope.first = CalcService.sqrtFunc($scope.conIn);
                   $scope.conOut = $scope.first;
                   $scope.conIn = $scope.first;

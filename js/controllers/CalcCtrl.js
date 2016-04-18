@@ -1,13 +1,13 @@
 app.controller('CalcCtrl', ['$scope', '$location', 'CalcService',
   function($scope, $location, CalcService) {
-      $scope.conOut = '0';
-      $scope.conIn = '';
+      $scope.conOut = '0'; //result variable
+      $scope.conIn = ''; // input variable
       $scope.infoBlock = {
           result: 'Result: ',
           input: 'Input: ',
           operation: 'Current operation: '
       }
-      $scope.opOut = '';
+      $scope.opOut = ''; //current operation variable
       $scope.digits ={'0':'', '1':'', '2':'', '3':'', '4':'', '5':'', '6':'', '7':'', '8':'', '9':''
       };
       $scope.firstOp = '';
@@ -22,7 +22,7 @@ app.controller('CalcCtrl', ['$scope', '$location', 'CalcService',
             $scope.conIn += numb;
             }
     }
-
+//math operation function
       $scope.operation = function(symbol){
           if($scope.conIn === '.'){
               $scope.conIn = '0';
@@ -110,7 +110,6 @@ app.controller('CalcCtrl', ['$scope', '$location', 'CalcService',
           if(symbol === 'sqrt'){
               if($scope.first && $scope.conIn > 0){
                   $scope.conIn = CalcService.sqrtFunc($scope.conIn);
-                  // $scope.conIn = $scope.second;
               }
               else if(!$scope.first && $scope.conIn >0){
                   $scope.first = CalcService.sqrtFunc($scope.conIn);

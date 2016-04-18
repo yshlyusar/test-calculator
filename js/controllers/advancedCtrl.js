@@ -22,7 +22,7 @@ app.controller('advancedCtrl', ['$scope', '$location', 'CalcService',
             $scope.conIn += numb;
             }
     }
-
+    
     $scope.operation = function(symbol){
         if($scope.conIn === '.'){
             $scope.conIn = '0';

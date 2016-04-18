@@ -1,11 +1,11 @@
 app.config(function($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: '/templates/simple.html',
+            templateUrl: 'templates/simple.html',
             controller: 'CalcCtrl'
         })
         .when('/advanced', {
-            templateUrl: '/templates/advancedCalc.html',
+            templateUrl: 'templates/advancedCalc.html',
             controller: 'advancedCtrl'
         })
         .otherwise({

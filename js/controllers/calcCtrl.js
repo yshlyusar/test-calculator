@@ -1,15 +1,15 @@
 app.controller('calcCtrl', ['$scope', 'CalcService',
   function($scope, CalcService) {
-    $scope.conOut = '0';
-    $scope.conIn = '';
-    $scope.page = false;
+    $scope.conOut = '0'; //result variable
+    $scope.conIn = ''; //input variable
+    $scope.page = false; //current mode variable
     $scope.pageName = 'Advanced mode';
     $scope.infoBlock = {
       result: 'Result: ',
       input: 'Input: ',
       operation: 'Current operation: '
     }
-    $scope.opOut = '';
+    $scope.opOut = ''; //cuurent operation variable
     $scope.digits ={'0':'', '1':'', '2':'', '3':'', '4':'', '5':'', '6':'', '7':'', '8':'', '9':''
     };
     $scope.firstOp = '';
@@ -24,7 +24,7 @@ app.controller('calcCtrl', ['$scope', 'CalcService',
             $scope.conIn += numb;
             }
     }
-
+//math operation function
     $scope.operation = function(symbol){
         if($scope.conIn === '.'){
             $scope.conIn = '0';
@@ -201,6 +201,7 @@ app.controller('calcCtrl', ['$scope', 'CalcService',
     $scope.backspace = function(){
         $scope.conIn = $scope.conIn.slice(0,-1);
     }
+    //change mode function
     $scope.goToCalc = function(){
         $scope.page = !$scope.page;
         $scope.pageName = ($scope.page) ? 'Simple mode' : 'Advanced mode'; 

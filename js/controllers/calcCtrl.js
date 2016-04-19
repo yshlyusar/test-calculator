@@ -1,7 +1,9 @@
-app.controller('advancedCtrl', ['$scope', '$location', 'CalcService',
-  function($scope, $location, CalcService) {
+app.controller('calcCtrl', ['$scope', 'CalcService',
+  function($scope, CalcService) {
     $scope.conOut = '0';
     $scope.conIn = '';
+    $scope.page = false;
+    $scope.pageName = 'Advanced mode';
     $scope.infoBlock = {
       result: 'Result: ',
       input: 'Input: ',
@@ -200,7 +202,8 @@ app.controller('advancedCtrl', ['$scope', '$location', 'CalcService',
         $scope.conIn = $scope.conIn.slice(0,-1);
     }
     $scope.goToCalc = function(){
-        $location.path('/');
+        $scope.page = !$scope.page;
+        $scope.pageName = ($scope.page) ? 'Simple mode' : 'Advanced mode'; 
     }
     $scope.ceFunc = function(){
       $scope.conIn = '';
